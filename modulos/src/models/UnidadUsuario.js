@@ -1,25 +1,26 @@
-import mongoose from 'mongoose';
+import {DataTypes} from 'sequelize';
+import {sequelize} from './index.js';
 
-const UnidadUsuarioSchema = new mongoose.Schema({
+const UnidadUsuario = sequelize.define('UnidadUsuario', {
     id: {
-        type: Number,
-        required: true,
-        unique: true,
-        min: 1,
-        max: 99999999999
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
     },
-    idUsuario:{
-        type: Number,
-        required: true
+    idUsuario: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     },
     idUnidad: {
-        type: Number,
-        required: true
+        type: DataTypes.INTEGER,
+        allowNull: false
     },
-    vigente: {
-        type: Boolean,
-        required: true,
-        default: true
-    }});   
-
-    export const UnidadUsuario = mongoose.model('UnidadUsuario', UnidadUsuarioSchema);
+    estado: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
+    }}, {
+        timestamps: true,
+        tableName: 'UnidadUsuario'
+    });
+    
+export default UnidadUsuario;

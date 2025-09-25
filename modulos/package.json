@@ -1,5 +1,13 @@
 {
   "devDependencies": {
     "rollup": "^4.52.0"
+  },
+
+  "type": "module",
+
+  "scripts": {
+    "dev": "node src/db.js",
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

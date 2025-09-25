@@ -1,29 +1,30 @@
-import mongoose from 'mongoose';
+import {DataTypes} from 'sequelize';
+import {sequelize} from './index.js';
 
-const UsuarioEnfermedadesSchema = new mongoose.Schema({
+const Usuario_Enfermedades = sequelize.define('Usuario_Enfermedades', {
     id: {
-        type: Number,
-        required: true,
-        unique: true,
-        min: 1,
-        max: 99999999999
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
     },
-    idUsuario:{
-        type: Number,
-        required: true
+    idUsuario: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     },
     idEnfermedad: {
-        type: Number,
-        required: true
+        type: DataTypes.INTEGER,
+        allowNull: false
     },
     fechaConsulta: {
-        type: Date,
-        required: true
+        type: DataTypes.DATE,
+        allowNull: false
     },
-    vigente: {
-        type: Boolean,
-        required: true,
-        default: true
-    }});
+    estado: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
+    }}, {
+        timestamps: true,
+        tableName: 'Usuario_Enfermedades'
+    });
 
-    export const UsuarioEnfermedades = mongoose.model('UsuarioEnfermedades', UsuarioEnfermedadesSchema);
+    export default Usuario_Enfermedades;

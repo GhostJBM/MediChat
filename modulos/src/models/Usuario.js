@@ -1,39 +1,39 @@
-import mongoose from 'mongoose';
+import {DataTypes} from 'sequelize';
+import {sequelize} from './index.js';
 
-const Usuario = new mongoose.Schema({
+const Usuario = sequelize.define('Usuario', {
     id: {
-        type: Number,
-        required: true,
-        unique: true,
-        min: 1,
-        max: 99999999999
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true 
     },
-    nombres:{  
-        type: String,
-        required: true
+    Nombres: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    apellidos: {
-        type: String,
-        required: true
+    Apellidos: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     email: {
-        type: String,
-        required: true,
-        match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
     },
-    contraseña: {
-        type: String,
-        required: true,
-        min: 8
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     discapacidad: {
-        type: String,
-        required: false
+        type: DataTypes.STRING,
+        allowNull: true
     },
-    vigente: {
-        type: Boolean,
-        required: true,
-        default: true
-    }});
+    estado: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
+    }}, {
+        timestamps: true,
+        tableName: 'Usuario'
+    });
 
-    export const Usuarios = mongoose.model('Usuarios', Usuario);
+export default Usuario;

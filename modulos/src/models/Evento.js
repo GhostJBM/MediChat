@@ -1,45 +1,46 @@
-import mongoose from 'mongoose';
+import {DataTypes} from 'sequelize';
+import {sequelize} from './index.js';
 
-const EventoSchema = new mongoose.Schema({
+const Evento = sequelize.define('Evento', {
     id: {
-        type: Number,
-        required: true,
-        unique: true,
-        min: 1,
-        max: 99999999999
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
     },
-    nombre:{
-        type: String,
-        required: true
+    nombre: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     descripcion: {
-        type: String,
-        required: true
+        type: DataTypes.TEXT,
+        allowNull: false
     },
     tipo: {
-        type: String,
-        required: true
+        type: DataTypes.STRING,
+        allowNull: false
     },
     fechaInicio: {
-        type: Date,
-        required: true
+        type: DataTypes.DATE,
+        allowNull: false
     },
     fechaFin: {
-        type: Date,
-        required: true
+        type: DataTypes.DATE,
+        allowNull: false
     },
-    IdUnidad: {
-        type: Number,
-        required: true
+    idUnidad: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     },
     lugar: {
-        type: String,
-        required: true
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    vigente: {
-        type: Boolean,
-        required: true,
-        default: true
-    }});
+    estado: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
+    }}, {
+        timestamps: true,
+        tableName: 'Eventos'
+    });
 
-    export const Evento = mongoose.model('Evento', EventoSchema);
+export default Evento;
