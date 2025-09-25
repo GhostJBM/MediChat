@@ -3,18 +3,12 @@ import mssql from 'mssql';
 const connectionSettings = {
     server: 'localhost',
     database: 'MediChat',
+    user: 'Josiel', // tu usuario SQL Server
+    password: '1234', // tu contraseña SQL Server
     options: {
         encrypt: true,
         trustServerCertificate: true,
-        port: 1433 // puedes quitarlo si usas puerto dinámico
-    },
-    authentication: {
-        type: 'ntlm',
-        options: {
-            domain: process.env.USERDOMAIN || '',
-            userName: 'Josiel',
-            password: '1234'
-        }
+        port: 1433
     }
 };
 
@@ -28,4 +22,4 @@ async function connectDB() {
     }
 }
 
-export { connectDB };
+export default connectDB();
