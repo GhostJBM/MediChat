@@ -9,6 +9,7 @@ const precalificaciones = router
 const app = express();
 
 app.set('port',config.port)
+app.use(express.json())
 
 //rutas
 app.use('/API', precalificaciones)
