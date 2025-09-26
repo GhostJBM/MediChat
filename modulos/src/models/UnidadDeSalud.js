@@ -1,47 +1,42 @@
-import mongoose from 'mongoose';
+import {DataTypes} from 'sequelize';
+import {sequelize} from './index.js';
 
-const UnidadDeSaludSchema = new mongoose.Schema({
+const UnidadDeSalud = sequelize.define('UnidadDeSalud', {
     id: {
-        type: Number,
-        required: true,
-        unique: true,
-        min: 1,
-        max: 99999999999
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
     },
-    nombre:{
-        type: String,
-        required: true
+    nombre: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     direccion: {
-        type: String,
-        required: true
+        type: DataTypes.STRING,
+        allowNull: false
     },
     telefono: {
-        type: Number,
-        required: true,
-        min: 8,
-        max: 8
+        type: DataTypes.NUMBER,
+        allowNull: false
     },
-    tipo: {
-        type: String,
-        required: true
+    Tipo: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     latitud: {
-        type: Number,
-        required: true,
-        min: -90,
-        max: 90
+        type: DataTypes.DOUBLE,
+        allowNull: false
     },
     longitud: {
-        type: Number,
-        required: true,
-        min: -180,
-        max: 180
+        type: DataTypes.DOUBLE,
+        allowNull: false
     },
-    vigente: {
-        type: Boolean,
-        required: true,
-        default: true
-    }});   
+    estado: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
+    }}, {
+        timestamps: true,
+        tableName: 'UnidadDeSalud'
+    });
 
-    export const UnidadDeSalud = mongoose.model('UnidadDeSalud', UnidadDeSaludSchema);
+export default UnidadDeSalud;
