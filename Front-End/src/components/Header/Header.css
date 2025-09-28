@@ -1,0 +1,66 @@
+.header {
+    background-color: #0372BE;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    height: 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.branding {
+    display: flex;
+    align-items: center;
+}
+
+.logoheader {
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.app-name {
+    font-family: poppins;
+    font-size: 28px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    user-select: none;
+}
+
+.nav a {
+    text-decoration: none;         /* quita el subrayado */
+    color: #ffffff;                  
+    padding: 20px 12px;             /* espacio interno */
+    border-radius: 6px;           
+    transition: background-color 0.2s ease;
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.nav a:hover {
+    background-color: #e0f0ff;     
+    color: #007bff;                
+    box-shadow: 0 0 0 2px #cce4ff;
+}
+
+.hora {
+    margin-left: 16px;
+    font-family: Poppins;
+    font-size: 15px;
+    color: #363636;
+    font-weight: 600;
+}
+
+.home-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.home-link:hover .app-name {
+    text-decoration: none;
+}

@@ -1,0 +1,114 @@
+.carrusel-wrapper {
+    margin-top: 32px;
+    padding: 0 16px;
+}
+
+.carrusel-wrapper h2 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.carrusel-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+    scrollbar-height: thin;
+}
+
+/* Scroll visible y estilizado */
+.carrusel-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.carrusel-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.carrusel-scroll::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 4px;
+}
+
+/* Firefox */
+.carrusel-scroll {
+    scrollbar-color: #007bff transparent;
+    scrollbar-width: thin;
+}
+
+/* Tarjetas dentro del carrusel */
+.tip-card {
+    min-width: 220px;
+    max-width: 220  px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.tip-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #007bff;
+}
+
+.tip-description {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 12px;
+    flex-grow: 1;
+}
+
+.tip-category,
+.tip-audience {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.tip-tags {
+    margin-top: auto;
+}
+
+.tip-tag {
+    display: inline-block;
+    background-color: #e0f0ff;
+    color: #007bff;
+    padding: 4px 8px;
+    margin: 4px 4px 0 0;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+.ver-todos-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+    padding-right: 16px;
+}
+
+.ver-todos-link {
+    color: #007bff;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.ver-todos-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}

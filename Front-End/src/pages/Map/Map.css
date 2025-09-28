@@ -1,0 +1,86 @@
+.map-container {
+    padding: 1rem;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    z-index: 0;
+}
+
+.titulo {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.filtro-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #eaf4fc;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.filtro-box label {
+    font-weight: bold;
+}
+
+.filtro-box select {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.unidad-cercana {
+    background: #dff0d8;
+    border-left: 6px solid #3c763d;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.unidad-cercana h3 {
+    margin-bottom: 0.5rem;
+}
+
+.leyenda {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    max-width: 200px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+@media (max-width: 600px) {
+    .leyenda {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+        max-width: 150px;
+    }
+}
+
+.btn-ubicarme {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+.btn-ubicarme:hover {
+    background: #0056b3;
+}
