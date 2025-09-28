@@ -16,8 +16,6 @@ export async function BuscarHospitales(lat, lng, radius = 5000) {
         const data = await response.json();
 
         if(data.status === "OK"){
-            
-
             return data.results.map(place =>({
             name: place.name,
             address: place.vicinity,

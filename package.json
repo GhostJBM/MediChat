@@ -1,10 +1,16 @@
 {
   "type": "module",
   "dependencies": {
+    "@google-cloud/dialogflow": "^7.2.0",
     "@googlemaps/google-maps-services-js": "^3.4.2",
+    "body-parser": "^2.2.0",
+    "dialogflow": "^1.2.0",
     "express": "^5.1.0",
+    "mongodb": "^6.20.0",
+    "mongoose": "^8.18.2",
     "mssql": "^11.0.1",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "uuid": "^13.0.0"
   },
   "scripts": {
     "dev": "nodemon ./backend/modulos/src/index.js"
