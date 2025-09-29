@@ -11,6 +11,13 @@
 
 ---
 
+## 📲 Compatibilidad
+
+- Optimizada para pantallas medianas y grandes.
+- Requiere navegador con soporte para JavaScript y geolocalización.
+  
+---
+
 ## 🖥️ Requisitos para usar la app
 
 - Navegador moderno (Chrome, Firefox, Edge).
@@ -24,27 +31,30 @@
 - Al ingresar, se carga la página de inicio.
 - El header está disponible para la navegación cómoda entre los distintos componentes.
 - El inicio muestra un carrusel de consejos destacados y un carrusel de próximos eventos o jornadas de salud.
-  - El c
-- El mapa muestra unidades de salud cercanas si se permite la ubicación
-- La burbuja flotante del asistente virtual está disponible en todo momento
+  - El carrusel de consejos tiene un botón que direcciona a la página de consejos o información de salud.
+  - El carrusel de próximos eventos tiene también un botón que direcciona a la página del calendario.
+- La burbuja flotante del asistente virtual está disponible en todo momento.
 
 ---
 
 ## 📅 Uso del calendario
 
-- Los días con eventos médicos aparecen resaltados
-- Al hacer clic en un día, se muestra:
-  - Tipo de jornada (vacunación, feria médica, etc.)
-  - Horario
-  - Ubicación
+- Los días con eventos médicos aparecen resaltados.
+  - Al hacer click en un día, se muestra:
+    - Descripción de la jornada.
+    - Tipo de jornada (vacunación, feria médica, etc.)
+- Al hacer click en el botón de "Hoy" se ubica en el mes actual.
 
 ---
 
-## 📍 Buscar unidad de salud cercana
+## 📍Uso del mapa de unidades de salud cercanas.
 
-- Al permitir geolocalización, se muestra la unidad más cercana
-- Si no se permite, se puede buscar manualmente por zona
-
+- Al permitir geolocalización, se muestra la unidad más cercana.
+- Se puede navegar dentro del mapa.
+  - Muestra las unidades de salud cercanas con pines.
+- Se pueden filtrar las unidades de salud cercanas por tipos de unidades.
+- Al hacer click en el botón "Ubicarme", se centra el mapa en la ubicación del usuario.
+  
 ---
 
 ## 💬 Asistente virtual
@@ -58,13 +68,40 @@
 
 ---
 
+## ❕Uso de la página de consejos
+
+- Se muestra la información de salud mediante tarjetitas, las cuales se ordenan una vista de grid.
+  - Los consejos se pueden filtrar según el tipo.
+
+---
+
+## ✅ Funcionalidades disponibles
+
+| Función                        | Estado     |
+|-------------------------------|------------|
+| Calendario de jornadas        | ✅ Activo   |
+| Mapa con unidades cercanas    | ✅ Activo   |
+| Asistente virtual             | ✅ Activo   |
+| Página de consejos            | ✅ Activo   |
+
+
+---
+
+## 📚 Glosario
+
+- **Jornada médica:** Evento temporal donde se ofrecen servicios de salud.
+- **Unidad móvil:** Vehículo equipado para atención médica en zonas específicas.
+- **Geolocalización:** Función que permite ubicar al usuario en el mapa.
+
+---
+
 ## 🛠️ Problemas comunes
 
 | Problema                          | Solución                                      |
 |----------------------------------|-----------------------------------------------|
 | No se carga el calendario        | Verificá conexión al backend (`localhost:5500`) |
-| No aparece la ubicación          | Revisá permisos del navegador                 |
-| El asistente no responde         | Verificá conexión a la API de OpenAI          |
+| No carga la página del mapa      | Revisá permisos del navegador                 |
+| El asistente no responde         | Verificá conexión a la API                     |
 
 ---
 
