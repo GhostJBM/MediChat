@@ -76,7 +76,7 @@ const connectionSettings = {
 
 ## 🧭 Guía Rápida de Usuario
 
-Una guía completa de uso está disponible en [`docs/guia-usuario.md`](./docs/guia-usuario.md).
+Una guía completa de uso está disponible en [`userguide.md`](./guia-usuario.md).
 
 A continuación, un resumen rápido:
 
