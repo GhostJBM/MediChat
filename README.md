@@ -72,3 +72,16 @@ const connectionSettings = {
     port: 1433
   }
 };
+```
+
+## 🧭 Guía Rápida de Usuario
+
+Una guía completa de uso está disponible en [`docs/guia-usuario.md`](./docs/guia-usuario.md).
+
+A continuación, un resumen rápido:
+
+- 📅 Calendario de unidades de salud móviles.
+- 📍 Geolocalización para encontrar unidades cercanas.
+- 💬 Asistente virtual disponible 24/7.
+- ❕ Información de salud necesaria.
+- 🖥️ Interfaz responsiva y fácil de usar.
