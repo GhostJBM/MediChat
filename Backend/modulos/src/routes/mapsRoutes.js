@@ -1,6 +1,10 @@
     import express from 'express'
     import { BuscarHospitales } from '../services/maps.js'
 
+/*
+Esta API debe recibir cordenadas en latitud y longitud, junto con 
+*/
+
 const routerMap = express.Router()
 
 //End point de la api para buscar hospitales cercanos ruta de acceso /MapHospitales
