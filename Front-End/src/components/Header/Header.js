@@ -32,7 +32,7 @@ const [horaActual, setHoraActual] = useState('');
         <nav className="nav">
             <Link to="/">Inicio</Link>
             <Link to="/mapa">Unidades Cercanas</Link>
-            <Link to="/calendario">Calendario de clínicas móviles</Link>
+            <Link to="/calendario">Calendario de Eventos y Ferias</Link>
             <Link to="/consejos">Consejos de salud</Link>
             <span className="hora">{horaActual}</span>
         </nav>

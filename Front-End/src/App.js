@@ -8,6 +8,8 @@ import Map from './pages/Map/Map';
 import Calendar from './pages/Calendar/Calendar';
 import TipsList from './pages/TipList/TipList';
 
+
+
 function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [isFading, setIsFading] = useState(false);

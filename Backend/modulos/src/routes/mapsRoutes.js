@@ -4,7 +4,7 @@
 const routerMap = express.Router()
 
 //End point de la api para buscar hospitales cercanos ruta de acceso /MapHospitales
-routerMap.get('/MapHospitales', async (req, res) => {
+routerMap.post('/MapHospitales', async (req, res) => {
     const {lat, lng, radius} = req.body;
 
         try{

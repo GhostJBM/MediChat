@@ -33,44 +33,32 @@ const Maps = () => {
         );
     }, []);
 
-    useEffect(() => {
-    const mockUnidades = [
-        {
-        nombre: 'Hospital Central',
-        direccion: 'Av. Bolívar, Managua',
-        lat: 12.1368,
-        lng: -86.2510,
-        tipo: 'hospital',
-        servicios: ['Urgencias', 'Pediatría', 'Cirugía']
-        },
-        {
-        nombre: 'Clínica Vida',
-        direccion: 'Calle 10, Managua',
-        lat: 12.1375,
-        lng: -86.2495,
-        tipo: 'clinica',
-        servicios: ['Medicina General', 'Laboratorio']
-        },
-        {
-        nombre: 'Centro de Salud Sur',
-        direccion: 'Zona Sur, Managua',
-        lat: 12.1342,
-        lng: -86.2532,
-        tipo: 'centro',
-        servicios: ['Vacunación', 'Consulta Externa']
-        },
-        {
-        nombre: 'Hospital Infantil',
-        direccion: 'Colonia Centroamérica',
-        lat: 12.1390,
-        lng: -86.2480,
-        tipo: 'hospital',
-        servicios: ['Pediatría', 'Neonatología']
-        }
-    ];
+    
 
-    setUnidades(mockUnidades);
-    }, []);
+useEffect(() => {
+    if (userLocation) {
+        const { lat, lng } = userLocation;
+        const radius = 5000;
+
+        const url = `http://localhost:5500/API/MapHospitales`
+
+        fetch(url,{
+            method: 'POST',  
+            headers: {
+                    'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                lat: userLocation.lat,
+                lng: userLocation.lng,
+                radius: 5000
+            })
+        })
+            .then(res => res.json())
+            .then(data => setUnidades(data))
+            .catch(err => console.error("Error al obtener unidades desde la API:", err));
+    }
+}, [userLocation]);
+
+
 
     // useEffect(() => {
     //     fetch('https://tu-api.com/unidades')
@@ -79,14 +67,15 @@ const Maps = () => {
     // }, []);
 
     const unidadesFiltradas = userLocation
-        ? unidades
-            .map(u => ({
-                ...u,
-                distancia: getDistance(userLocation.lat, userLocation.lng, u.lat, u.lng)
-            }))
-            .filter(u => filtroTipo === '' || u.tipo === filtroTipo)
-        : [];
-        
+    ? unidades
+        .map(u => ({
+            ...u,
+            lat: u.location?.lat,
+            lng: u.location?.lng,
+            distancia: getDistance(userLocation.lat, userLocation.lng, u.location?.lat, u.location?.lng)
+        }))
+        .filter(u => filtroTipo === '' || u.tipo === filtroTipo)
+    : [];
         
     const unidadMasCercana = userLocation && unidadesFiltradas.length > 0
         ? unidadesFiltradas.sort((a, b) => a.distancia - b.distancia)[0]

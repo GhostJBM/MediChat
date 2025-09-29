@@ -17,8 +17,7 @@ routerCalendario.get('/Calendario', async (req,res) => {
         `);
 
     res.json({ Calendario : result.recordset })
-    }
-    
+    }   
 catch (error) {
   res.status(500).send("Error al obtener precalificaciones");
 }})

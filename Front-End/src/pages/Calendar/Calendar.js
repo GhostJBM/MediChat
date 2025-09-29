@@ -1,26 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Calendar.css';
 import { useMemo } from 'react';
 
-    const eventosRaw = [
-        {
-            nombre: "Jornada de Vacunación Infantil",
-            descripcion: "Campaña de vacunación para niños menores de 5 años.",
-            fechaInicio: "2025-05-01T00:00:00.000Z",
-            fechaFin: "2025-05-05T00:00:00.000Z",
-            tipo: "campaña de vacunación"
-        },
-        {
-            nombre: "Feria de Salud Preventiva",
-            descripcion: "Charlas y chequeos médicos gratuitos.",
-            fechaInicio: "2025-05-02T00:00:00.000Z",
-            fechaFin: "2025-05-03T00:00:00.000Z",
-            tipo: "Charlas educativas"
-        },
-  // ...
-    ];
+    console.log('Calendar montado');
 
 function Calendar() {
+    
+const [eventosRaw, setEventosRaw] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5500/API/calendario')
+    .then(res => res.json()) 
+    .then(data => {
+      console.log('Eventos recibidos:', data);
+      setEventosRaw(data.Calendario);
+    })
+      .catch(err => console.error('Error al cargar eventos:', err));
+  }, []);
     const [selectedDate, setSelectedDate] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [modalPosition, setModalPosition] = useState({ top: 0, left: 0 });
@@ -35,30 +31,27 @@ function Calendar() {
     };
 
 
-    const eventos = useMemo(() => {
-        const map = {};
-        eventosRaw.forEach(ev => {
-            const start = new Date(ev.fechaInicio);
-            const end = new Date(ev.fechaFin);
+    
 
-            for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-                const fecha = d.toISOString().split('T')[0];
-                if (!map[fecha]) map[fecha] = [];
-                map[fecha].push({
-                    id: `${ev.nombre}-${fecha}`, 
-                    title: ev.nombre,
-                    // hora: `${new Date(ev.fechaInicio).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} - ${new Date(ev.fechaFin).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`,
-                    descripcion: ev.descripcion,
-                    tipo: ev.tipo
-                });
+const eventos = useMemo(() => {
+    const map = {};
+    eventosRaw.forEach(ev => {
+      const start = new Date(ev.fechaInicio);
+      const end = new Date(ev.fechaFinal);
 
-            }
-        });   
-        return map;
-    }, []);
-
-
-
+      for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+        const fecha = d.toISOString().split('T')[0];
+        if (!map[fecha]) map[fecha] = [];
+        map[fecha].push({
+          id: `${ev.Nombre}-${fecha}`,
+          title: ev.Nombre,
+          descripcion: ev.descripcion,
+          tipo: ev.tipo
+        });
+      }
+    }); 
+    return map;
+  }, [eventosRaw]);
     
     const handleClick = (formattedDate, event) => {
         if (eventos[formattedDate]) {
@@ -75,7 +68,7 @@ function Calendar() {
 
     return (
         <div className="calendar-wrapper">
-            <h1 className="titulo">Calendario de Clínicas Móviles</h1>
+            <h1 className="titulo">Calendario de Eventos y Ferias</h1>
             <div className="calendar-toolbar">
                 <button onClick={() => setCurrentMonth(new Date())}>Hoy</button>
             </div>

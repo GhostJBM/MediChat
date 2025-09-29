@@ -8,12 +8,16 @@ import routerCalendario  from './routes/calendario.js';
 import routerMap from './routes/mapsRoutes.js';
 import routerInfoSalud from './routes/infoSalud.js';
 import routerChatBot from './routes/chat.js';
+import Cors from 'cors'
 
 dotenv.config();
 
 const precalificaciones = router
 
 const app = express();
+
+
+app.use(Cors());
 
 app.set('port',config.port)
 app.use(express.json())

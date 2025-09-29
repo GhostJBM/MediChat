@@ -63,7 +63,7 @@ const Home = () => (
         <CarruselTips consejos={destacados} />
 
         {/* carrusel eventos */}
-        <h2 className="seccion-titulo">¿Cuándo se harán las clínica móviles?</h2>
+        <h2 className="seccion-titulo">¿Cuándo se harán los eventos y ferias</h2>
         <CarruselEventos />
         
         <section className="funcionalidades-home">
