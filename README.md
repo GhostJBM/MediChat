@@ -2,96 +2,102 @@
 
 Aplicación web enfocada en la salud, donde el usuario tiene la posibilidad de encontrar la unidad de salud más cercana mediante geolocalización, obtener información adecuada, acceder a un calendario, en donde se vean reflejados los días en los cuales habrán unidades móviles. Además de esto, también tiene la disponibilidad de un asistente virtual al cual se le puede presentar dudas y acceder todo el tiempo mediante una burbuja flotante.
 
-## Estructura del proyecto
--Backend/modulos/src
-    |-models
-        Enfermedades_model.js
-        Evento.js
-        informacionSalud.js
-        UnidadDeSalud.js
-        UnidadUsuario.js
-        Usuario_Enfermedades.js
-        Usuario.js
-    |red
-        respuestas.js
-    |routes
-        calendario.js
-        chat.js
-        infoSalud.js
-        login.js
-        mapsRoutes.js
-        precalificaciones.js
-    |services
-        chatbot.js
-        maps.js
-    app.js
-    index.js
-    config.js
-    db.js
-    dbMongo.js
--Front-End
-    |-public
-        index.html
-        LOGO-MEDICHAT.ico
-        robots.txt
-    |-src
-        |-assets
-            logo.png
-            logo1.png
-            logo2.png
-            logo3.png
-            mascota.png
-        |-components
-            |-CarruselEventos
-                CarruselEventos.css
-                CarruselEventos.js
-            |-CarruselTips
-                CarruselTips.css
-                CarruselTips.js
-            |-FloatingChat
-                FloatingChat.css
-                FloatingChat.js
-            |-Footer
-                Footer.css
-                Footer.js
-            |-Header
-                Hearder.css
-                Hearder.js
-            |-Map
-                MapGoogle.js
-                MapLeaflet.js
-            |-Tip
-                Tip.css
-                Tip.js
-            |-TipFilter
-                TipFilter.css
-                TipFilter.js
-        |-context
-            ChatContext.js
-        |-layouts
-            MainLayout.css
-            MainLayout.js
-        |-pages
-            |-Calendar
-                Calendar.css
-                Calendar.js
-            |-Home
-                Home.css
-                Home.js
-            |-Map
-                Map.css
-                Map.js
-            |-SplashScreen
-                SlapshScreen.css
-                SplashScreen.js
-            |-TipList
-                TipList.css
-                TipList.js
-        App.css
-        App.js
-        index.css
-        index.js
-    
+## 📁 Estructura del Proyecto
+
+```plaintext
+MediChat/
+├── Backend/
+│   ├── modulos/
+│   │   └── src/
+│   │       ├── models/
+│   │       │   ├──Enfermedades_model.js
+│   │       │   ├──Evento.js
+│   │       │   ├──informacionSalud.js
+│   │       │   ├──UnidadDeSalud.js
+│   │       │   ├──UnidadUsuario.js
+│   │       │   ├──Usuario_Enfermedades.js
+│   │       │   └──Usuario.js
+│   │       ├── red/
+│   │       │   └──respuestas.js
+│   │       ├── routes/
+│   │       │   ├──calendario.js
+│   │       │   ├──chat.js
+│   │       │   ├──infoSalud.js
+│   │       │   ├──login.js
+│   │       │   ├──mapsRoutes.js
+│   │       │   └──precalificaciones.js
+│   │       ├── services/
+│   │       │   ├──chatbot.js
+│   │       │   └──maps.js
+│   │       ├── app.js
+│   │       ├── index.js
+│   │       ├── config.js
+│   │       ├── db.js
+│   │       └── dbMongo.js
+├── Front-End/
+│   ├── public/
+│   │   ├──index.html
+│   │   ├──LOGO-MEDICHAT.ico
+│   │   └──robots.txt
+│   └── src/
+│       ├── assets/
+│       │   ├──logo.png
+│       │   ├──logo1.png
+│       │   ├──logo2.png
+│       │   ├──logo3.png
+│       │   └──mascota.png
+│       ├── components/
+|       |   ├──CarruselEventos
+|       |   |    ├──CarruselEventos.css
+|       |   |    └──CarruselEventos.js
+|       |   ├──CarruselTips
+|       |   |    ├──CarruselTips.css
+|       |   |    └──CarruselTips.js
+|       |   ├──FloatingChat
+|       |   |    ├──FloatingChat.css
+|       |   |    └──FloatingChat.js
+|       |   ├──Footer
+|       |   |    ├──Footer.css
+|       |   |    └──Footer.js
+|       |   ├──Header
+|       |   |    ├──Hearder.css
+|       |   |    └──Hearder.js
+|       |   ├──Map
+|       |   |    ├──MapGoogle.js
+|       |   |    └──MapLeaflet.js
+|       |   ├──Tip
+|       |   |    ├──Tip.css
+|       |   |    └──Tip.js
+|       |   ├──TipFilter
+|       |   |    ├──TipFilter.css
+|       |   |    └──TipFilter.js
+│       ├── context/
+|       |   └──ChatContext.js
+│       ├── layouts/
+|       |   ├──MainLayout.css
+|       |   └──MainLayout.js
+│       ├── pages/
+|       |   ├──Calendar
+|       |   |    ├──Calendar.css
+|       |   |    └──Calendar.js
+|       |   ├──Home
+|       |   |    ├──Home.css
+|       |   |    └──Home.js
+|       |   ├──Map
+|       |   |    ├──Map.css
+|       |   |    └──Map.js
+|       |   ├──SplashScreen
+|       |   |    ├──SlapshScreen.css
+|       |   |    └──SplashScreen.js
+|       |   ├──TipList
+|       |   |    ├──TipList.css
+|       |   |    └──TipList.js
+│       ├── App.css
+│       ├── App.js
+│       ├── index.css
+│       └── index.js
+└──
+```
 
 ## Tecnologías utilizadas
 
@@ -195,8 +201,9 @@ A continuación, un resumen rápido:
 - 🖥️ Interfaz responsiva y fácil de usar.
 
 # Proyecto Desarrollado con fines de resolver una problematica para Hackathon Nicaragua 2025/ Categoria aficionado
-Nombres: Adrian Medina  amedinapya18@gmail.com
-         Josiel Morales JosielBenavidez@gmail.com
+Nombres: 
+- Adrian Medina:  amedinapya18@gmail.com
+- Josiel Morales: JosielBenavidez@gmail.com
 
 GitHub: @AdrianMedina2
         @GhostJBM
