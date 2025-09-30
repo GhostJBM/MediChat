@@ -12,7 +12,7 @@ const MapaGoogle = ({ unidades, userLocation, unidadDestacada }) => {
     const mapRef = useRef(null);
 
     const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: 'AIzaSyCy2BzBU6g7-7EbE5R-4E9eKjC-KSA80ns',
+        googleMapsApiKey: 'Ingrese su Key de google Maps Aquí',
     });
 
     useEffect(() => {

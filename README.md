@@ -140,6 +140,61 @@ npm start
 ## Services
 - `DialogFlow`: plataforma creada por google con la facilidad de crear un chatbot
 - `GoogleMaps`: API de servicio de google que permite Jalar el mapa global
+- `nota obligatoria`: la key api de google deben ser colocadas por usted manualmente en:
+   Ubicación: .\Backend\modulos\src\services\maps.js\BuscarHospitales
+
+   export async function BuscarHospitales(lat, lng, radius = 5000) {
+    try{
+        const apiKey = "ingrese su key API DE GOOGLE MAPS AQUÍ"/*
+        obligatorio tener las api de Maps JavaScript API
+        Places API
+        Geocoding API
+        */
+
+        const Url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=5000&keyword=hospital&key=${apiKey}`;
+
+
+        const response = await fetch( Url)
+        const data = await response.json();
+
+        if(data.status === "OK"){
+            return data.results.map(place =>({
+            name: place.name,
+            address: place.vicinity,
+            location: place.geometry.location,
+            place_id: place.place_id
+            }))
+        }else {
+            throw new Error("Error en el lugar de origen: " + data.status);
+        }
+    }
+    catch(err){
+        console.error(err.message);
+        throw err;
+    }
+}
+-`Front-End map`:
+Ubicación: .\Front-End\src\components\Map\MapGoogle.js\MapaGoogle
+const { isLoaded } = useJsApiLoader({
+        googleMapsApiKey: 'Ingrese su Key de google Maps Aquí',
+    });
+
+-`para el chatbot igual`: 
+ ubicación: .\Backend\modulos\src\config.js\config
+import dotenv from 'dotenv'
+import app from './app.js';
+
+ export const config = {
+    //Google Credenciales
+    GOOGLE_PROJECT_ID:'apimedichat',
+    DF_LANGUAGE_CODE: 'es',
+    GOOGLE_CLIENT_EMAIL:"josiel@apimedichat.iam.gserviceaccount.com",
+    GOOGLE_PRIVATE_KEY:"Ingrese su key de dialogFlow justo aquí",
+    app:{
+        port: process.env.port || 3000,
+    }
+};
+
 
 ## Base de Datos
 
@@ -162,7 +217,7 @@ import mssql from 'mssql';
 const connectionSettings = {
   server: 'localhost',
   database: 'MediChat',
-  user: 'Josiel',
+  user: '***',
   password: '1234',
   options: {
     encrypt: true,

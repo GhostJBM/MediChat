@@ -7,7 +7,7 @@ const client = new Client({})
 
 export async function BuscarHospitales(lat, lng, radius = 5000) {
     try{
-        const apiKey = "AIzaSyDWUXFYwmmgDvmjejfS5y8OJUsye5dYRzc"
+        const apiKey = "Ingrese su key de google Maps aquí"
 
         const Url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=5000&keyword=hospital&key=${apiKey}`;
 
